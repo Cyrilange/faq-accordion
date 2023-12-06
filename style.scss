@@ -1,0 +1,140 @@
+@font-face {
+  font-family: font1;
+  src: url("./assets/fonts/static/WorkSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: font2;
+  src: url("./assets/fonts/static/WorkSans-Regular.ttf");
+}
+@font-face {
+  font-family: font3;
+  src: url("./assets/fonts/static/WorkSans-SemiBold.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  background-image: url(./assets/images/background-pattern-desktop.svg);
+  @media (max-width: 450px) {
+    background-image: url(./assets/images/background-pattern-mobile.svg);
+  }
+}
+
+.container {
+  max-width: 700px;
+  max-height: 60vh;
+  border-radius: 15px;
+  background: white;
+  padding: 15px;
+
+  .header-conatiner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1.2rem;
+
+    h1 {
+      margin-left: 20px;
+      font-size: 3rem;
+
+      font-family: "font1";
+      color: hsl(292, 42%, 14%);
+    }
+  }
+
+  .accordion {
+    max-width: 600px;
+    height: auto;
+    font-family: "font3";
+
+    .content-box {
+      position: relative;
+      margin: 10px 20px;
+      border-bottom: 2px solid rgba(128, 128, 128, 0.13);
+      transition: 0.3s ease-in-out;
+
+      .label {
+        position: relative;
+        padding: 19px 10px;
+        transition: 0.3s ease-in-out;
+        font-size: 0.7rem;
+
+        cursor: pointer;
+
+        @media (max-width: 450px) {
+          font-size: 0.5rem;
+
+          padding-right: 25px;
+        }
+
+        &::before {
+          content: url("./assets/images/icon-plus.svg");
+
+          font-weight: 900;
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          transform: translateY(-50%);
+
+          @media (max-width: 450px) {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+          }
+        }
+
+        h2 {
+          margin-right: 15px;
+          color: hsl(292, 42%, 14%);
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            color: hsl(276, 41%, 85%);
+          }
+        }
+      }
+
+      .text {
+        position: relative;
+        color: hsl(292, 42%, 14%);
+        opacity: 70%;
+        padding: 0 10px;
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+        height: 0;
+        overflow: hidden;
+        overflow-y: auto;
+        transition: 0.5s ease-in-out;
+      }
+    }
+    .active {
+      height: auto;
+      padding: 10px 0;
+      position: relative;
+      .text {
+        height: auto;
+      }
+    }
+  }
+}
+
+.accordion .content-box.active .label::before {
+  content: url("./assets/images/icon-minus.svg");
+}
+
+.attribution {
+  margin-top: 10px;
+  color: white;
+  font-size: 1rem;
+}
