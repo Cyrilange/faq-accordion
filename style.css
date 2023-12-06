@@ -34,6 +34,7 @@ body {
 @media (max-width: 450px) {
   body {
     background-image: url(./assets/images/background-pattern-mobile.svg);
+    min-height: 100vh;
   }
 }
 
